@@ -6,6 +6,7 @@ import numpy as np
 
 BLACK_SQUARE = '\u2B1B'
 WHITE_SQUARE = '\u2B1C'
+BOMB = '💣'
 
 def create_board(size=10):
     """
@@ -72,7 +73,7 @@ def add_ship(board, x=0,y=0, size=2, orientation='E'):
     print(y, y_finish)
     
     if orientation == 'E':
-        board[x, y:y_finish] = WHITE_SQUARE
+        board[x, y:y_finish] = BOMB
     elif orientation == 'S':
         board[x:x_finish, y] = WHITE_SQUARE
     
@@ -84,3 +85,4 @@ new_board = create_board()
 add_ship(new_board, 2, 2, 4, 'E')
 add_ship(new_board, 5, 3, 4, 'S')
 print_board(new_board)
+
