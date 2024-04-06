@@ -68,12 +68,9 @@ def add_ship(board, x=0,y=0, size=2, orientation='E'):
         print('There is already a ship there')
         return
     
-    # add ship    
-    print(x, x_finish)
-    print(y, y_finish)
-    
+    # add ship        
     if orientation == 'E':
-        board[x, y:y_finish] = BOMB
+        board[x, y:y_finish] = WHITE_SQUARE
     elif orientation == 'S':
         board[x:x_finish, y] = WHITE_SQUARE
     
@@ -86,3 +83,18 @@ add_ship(new_board, 2, 2, 4, 'E')
 add_ship(new_board, 5, 3, 4, 'S')
 print_board(new_board)
 
+game_in_progress = True
+
+while game_in_progress:
+    move = input('Please enter your move (X,Y):')
+    if move == 'Q':
+        game_in_progress = False
+    else:
+        x_coord, y_coord = move.split(',')
+        x_coord = int(x_coord)-1
+        y_coord = int(y_coord)-1
+        
+        if new_board[x_coord, y_coord] == WHITE_SQUARE:
+            print('That\'s a hit!')
+            new_board[x_coord, y_coord] = BOMB
+            print_board(new_board)
