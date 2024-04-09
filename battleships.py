@@ -98,3 +98,6 @@ while game_in_progress:
             print('That\'s a hit!')
             new_board[x_coord, y_coord] = BOMB
             print_board(new_board)
+        elif new_board[x_coord, y_coord] == BLACK_SQUARE:
+            print('That\'s a miss!')            
+            print_board(new_board)
