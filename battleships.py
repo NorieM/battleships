@@ -8,6 +8,33 @@ BLACK_SQUARE = '\u2B1B'
 WHITE_SQUARE = '\u2B1C'
 BOMB = '💣'
 
+
+class Game:
+    """
+        Game class
+    """
+    def __init__(self):
+        """
+            Initialize instance of Game object
+        """
+        self.sea = create_board()
+        self.players = []
+
+    def add_player(self, player):
+        """_summary_
+
+        Args:
+            player (Player): _description_
+        """
+        self.players.append(player)
+
+class Player:
+    """
+        Player class
+    """
+    def __init__(self, name):
+        self.name = name
+                
 def create_board(size=10):
     """
     creates board for battleship
