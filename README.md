@@ -1,1 +1,1 @@
-Reproduction of Battlehsips game using Python
+Reproduction of Battleships game using Python

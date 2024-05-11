@@ -22,15 +22,17 @@ class Game:
 
     def add_player(self, name):
         """
-        Add player to game
+        Add new instance of Player to game
 
         Args:
-            player (Player): _description_
+            name (string): player's name
         """
         self.players.append(Player(name))
     
     def add_ship(self):
-        pass
+        """
+        Add ship to game
+        """
         
 
 class Player:
@@ -142,5 +144,8 @@ new_game = Game()
 
 new_game.add_player('Norie')
 new_game.add_player('Bob')
+
+add_ship(new_game.sea, 2, 2, 4, 'E')
+add_ship(new_game.sea, 5, 3, 4, 'S')
 
 print_board(new_game.sea)
