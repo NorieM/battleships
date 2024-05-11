@@ -8,7 +8,6 @@ BLACK_SQUARE = '\u2B1B'
 WHITE_SQUARE = '\u2B1C'
 BOMB = '💣'
 
-
 class Game:
     """
         Game class
@@ -19,14 +18,20 @@ class Game:
         """
         self.sea = create_board()
         self.players = []
+        self.ships = []
 
-    def add_player(self, player):
-        """_summary_
+    def add_player(self, name):
+        """
+        Add player to game
 
         Args:
             player (Player): _description_
         """
-        self.players.append(player)
+        self.players.append(Player(name))
+    
+    def add_ship(self):
+        pass
+        
 
 class Player:
     """
@@ -34,6 +39,10 @@ class Player:
     """
     def __init__(self, name):
         self.name = name
+    
+    def __repr__(self):
+        return f'This player is called {self.name}'
+        
                 
 def create_board(size=10):
     """
@@ -103,28 +112,35 @@ def add_ship(board, x=0,y=0, size=2, orientation='E'):
     
     return board
 
-new_board = create_board()
+# new_board = create_board()
 
 
-add_ship(new_board, 2, 2, 4, 'E')
-add_ship(new_board, 5, 3, 4, 'S')
-print_board(new_board)
+# add_ship(new_board, 2, 2, 4, 'E')
+# add_ship(new_board, 5, 3, 4, 'S')
+# print_board(new_board)
 
-game_in_progress = True
+# game_in_progress = True
 
-while game_in_progress:
-    move = input('Please enter your move (X,Y):')
-    if move == 'Q':
-        game_in_progress = False
-    else:
-        x_coord, y_coord = move.split(',')
-        x_coord = int(x_coord)-1
-        y_coord = int(y_coord)-1
+# while game_in_progress:
+#     move = input('Please enter your move (X,Y):')
+#     if move == 'Q':
+#         game_in_progress = False
+#     else:
+#         x_coord, y_coord = move.split(',')
+#         x_coord = int(x_coord)-1
+#         y_coord = int(y_coord)-1
         
-        if new_board[x_coord, y_coord] == WHITE_SQUARE:
-            print('That\'s a hit!')
-            new_board[x_coord, y_coord] = BOMB
-            print_board(new_board)
-        elif new_board[x_coord, y_coord] == BLACK_SQUARE:
-            print('That\'s a miss!')            
-            print_board(new_board)
+#         if new_board[x_coord, y_coord] == WHITE_SQUARE:
+#             print('That\'s a hit!')
+#             new_board[x_coord, y_coord] = BOMB
+#             print_board(new_board)
+#         elif new_board[x_coord, y_coord] == BLACK_SQUARE:
+#             print('That\'s a miss!')            
+#             print_board(new_board)
+        
+new_game = Game()
+
+new_game.add_player('Norie')
+new_game.add_player('Bob')
+
+print_board(new_game.sea)
