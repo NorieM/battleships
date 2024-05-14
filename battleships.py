@@ -45,7 +45,12 @@ class Player:
     def __repr__(self):
         return f'This player is called {self.name}'
         
-                
+       
+class Ship:
+    """
+        Ship class
+    """
+             
 def create_board(size=10):
     """
     creates board for battleship
