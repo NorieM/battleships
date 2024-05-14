@@ -104,7 +104,7 @@ def add_ship(board, x=0,y=0, size=2, orientation='E'):
     
     # check ship will fit on board
     if x_finish>len(board)-1 or y_finish>len(board)-1:
-        print(f'A ship of size {size} won\'t fit in that position.')
+        print(f'A ship of size {size} won\'t fit at ({x}, {y}).')
         return
 
     if np.isin(board[x:x_finish+1, y:y_finish+1],WHITE_SQUARE).any():
@@ -151,6 +151,6 @@ new_game.add_player('Norie')
 new_game.add_player('Bob')
 
 add_ship(new_game.sea, 2, 2, 4, 'E')
-add_ship(new_game.sea, 5, 3, 4, 'S')
+add_ship(new_game.sea, 7, 3, 4, 'S')
 
 print_board(new_game.sea)
